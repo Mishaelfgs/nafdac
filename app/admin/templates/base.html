@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAFDAC Checker Admin</title>
+<style>
+ body{font-family:system-ui,sans-serif;margin:0;background:#f5f6f8;color:#1a1a1a}
+ nav{background:#0b6b3a;color:#fff;padding:12px 20px;display:flex;gap:18px;align-items:center}
+ nav a{color:#fff;text-decoration:none} nav .sp{flex:1}
+ main{max-width:1000px;margin:20px auto;padding:0 16px}
+ table{width:100%;border-collapse:collapse;background:#fff} th,td{padding:8px 10px;border-bottom:1px solid #e3e3e3;text-align:left;font-size:14px}
+ .cards{display:flex;gap:12px;flex-wrap:wrap} .card{background:#fff;padding:16px;border-radius:8px;min-width:150px}
+ .card b{font-size:26px;display:block}
+ label{display:block;margin:10px 0 3px;font-size:14px} input,select{width:100%;padding:8px;box-sizing:border-box}
+ button,.btn{background:#0b6b3a;color:#fff;border:0;padding:9px 16px;border-radius:5px;text-decoration:none;cursor:pointer;display:inline-block}
+ .err{background:#fde8e8;color:#9b1c1c;padding:10px;border-radius:5px;margin:10px 0}
+ .warn{font-size:12px;color:#666;margin-top:24px}
+</style></head><body>
+{% if user %}<nav><b>NAFDAC Checker</b><a href="/admin/">Dashboard</a><a href="/admin/products">Products</a><a href="/admin/reports">Reports</a><span class="sp"></span><a href="/admin/logout">Log out</a></nav>{% endif %}
+<main>{% block content %}{% endblock %}
+<p class="warn">Independent checker using public data. Not affiliated with NAFDAC.</p></main></body></html>

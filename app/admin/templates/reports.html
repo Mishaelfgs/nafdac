@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<h2>Fake-product reports</h2>
+<p>Review actions (approve / reject / confirm fake) arrive in Phase 2.</p>
+<table><tr><th>Date</th><th>Product ID</th><th>Where</th><th>Description</th><th>Status</th></tr>
+{% for r in items %}<tr><td>{{ r.created_at.strftime('%Y-%m-%d') }}</td><td>{{ r.product_id or '-' }}</td><td>{{ r.market_name or '' }} {{ r.location_text or '' }}</td><td>{{ r.description or '' }}</td><td>{{ r.status }}</td></tr>
+{% else %}<tr><td colspan="5">No reports yet.</td></tr>{% endfor %}
+</table>{% endblock %}

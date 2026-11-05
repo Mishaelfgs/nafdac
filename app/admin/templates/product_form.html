@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block content %}
+<h2>{{ "Edit" if p.id else "Add" }} product</h2>
+{% if error %}<div class="err">{{ error }}</div>{% endif %}
+<form method="post" style="max-width:520px">
+ <label>Product name</label><input name="product_name" value="{{ p.product_name or '' }}" required>
+ <label>NAFDAC number (e.g. A4-1001)</label><input name="nafdac_number" value="{{ p.nafdac_number or '' }}" required>
+ <label>Manufacturer</label><input name="manufacturer" value="{{ p.manufacturer or '' }}" required>
+ <label>Category</label><select name="category">{% for c in categories %}<option {{ 'selected' if c == p.category }}>{{ c }}</option>{% endfor %}</select>
+ <label>Status</label><select name="status">{% for s in statuses %}<option {{ 'selected' if s == p.status }}>{{ s }}</option>{% endfor %}</select>
+ <label>Pack sizes</label><input name="pack_sizes" value="{{ p.pack_sizes or '' }}">
+ <label>Registration / expiry info</label><input name="expiry_info" value="{{ p.expiry_info or '' }}">
+ <label>Barcode (optional)</label><input name="barcode" value="{{ p.barcode or '' }}">
+ <label>Photo URL (optional)</label><input name="photo_url" value="{{ p.photo_url or '' }}">
+ <p><button>Save</button> <a href="/admin/products">Cancel</a></p>
+</form>{% endblock %}

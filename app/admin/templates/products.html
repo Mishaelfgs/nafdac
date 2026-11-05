@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<h2>Products</h2>
+<form method="get" style="display:flex;gap:8px;margin-bottom:12px"><input name="q" value="{{ q }}" placeholder="Search name, maker or NAFDAC number"><button>Search</button><a class="btn" href="/admin/products/new">+ Add</a></form>
+<table><tr><th>Name</th><th>NAFDAC No</th><th>Manufacturer</th><th>Category</th><th>Status</th><th></th></tr>
+{% for p in items %}<tr><td>{{ p.product_name }}{% if p.is_sample %} <small>(SAMPLE)</small>{% endif %}</td><td>{{ p.nafdac_number }}</td><td>{{ p.manufacturer }}</td><td>{{ p.category }}</td><td>{{ p.status }}</td><td><a href="/admin/products/{{ p.id }}/edit">Edit</a></td></tr>
+{% else %}<tr><td colspan="6">No products found.</td></tr>{% endfor %}
+</table>{% endblock %}

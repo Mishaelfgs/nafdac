@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block content %}
+<h2>Dashboard</h2>
+<div class="cards">
+ <div class="card"><b>{{ stats.total_checks }}</b>Total checks</div>
+ <div class="card"><b>{{ stats.checks_7d }}</b>Checks (7 days)</div>
+ <div class="card"><b>{{ stats.products }}</b>Products in database</div>
+ <div class="card"><b>{{ stats.pending_reports }}</b>Pending reports</div>
+</div>
+<h3>Checks by verdict</h3>
+<table><tr><th>Verdict</th><th>Count</th></tr>
+{% for v, n in verdicts %}<tr><td>{{ v }}</td><td>{{ n }}</td></tr>{% else %}<tr><td colspan="2">No checks yet.</td></tr>{% endfor %}
+</table>{% endblock %}
